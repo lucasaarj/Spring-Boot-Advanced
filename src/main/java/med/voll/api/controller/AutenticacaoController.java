@@ -22,7 +22,7 @@ public class AutenticacaoController {
   @PostMapping
   public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
     var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-    var authentication = manager.authenticate(token);
+    manager.authenticate(token);
     return ResponseEntity.ok().build();
   }
 }
